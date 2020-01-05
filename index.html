@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript Data Structures and Algorithms</title>
+        <script src="./isPrime.js"></script>
+    </head>
+
+    <body>
+	<div id="app"></div>
+	<input type="button" value="Enter Number" onclick=checkValue()></input>
+	<input id="inputBox" type="text" name="numVal"></input>
+
+    <script>
+
+	const app = document.getElementById("app");
+
+	var num;
+
+	function checkValue(){
+		num = Number(document.getElementById("inputBox").value);
+
+		if(num){
+			app.innerHTML = `<h3>You entered ${num} ${ isPrime(Number(num)) ? 'which is prime' : 'not prime' } .</h3>`;
+		} 
+
+		num = null;
+	}
+
+    </script>
+    </body>
+</html>
