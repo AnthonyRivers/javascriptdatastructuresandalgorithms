@@ -4,16 +4,24 @@
         <meta charset="utf-8">
         <title>JavaScript Data Structures and Algorithms</title>
         <script src="./isPrime.js"></script>
+	<script src="./improvedIsPrime.js"></script>
     </head>
 
     <body>
 	<div id="app"></div>
-	<input type="button" value="Enter Number" onclick=checkValue()></input>
+	<h2>Using isPrime() function.</h2>
+	<input type="button" value="Check Primatily" onclick=checkValue()></input>
 	<input id="inputBox" type="text" name="numVal"></input>
+
+	<div id="improvedPrime"></div>
+	<h2>Using improvedIsPrime() function.</h2>
+	<input type="button" value="Check Primatily" onclick=improvedPrime()></input>
+	<input id="inputBox2" type="text" name="numVal2"></input>
 
     <script>
 
 	const app = document.getElementById("app");
+	const checkPrime = document.getElementById("improvedPrime");
 
 	var num;
 
@@ -22,6 +30,17 @@
 
 		if(num){
 			app.innerHTML = `<h3>You entered ${num} ${ isPrime(Number(num)) ? 'which is prime' : 'not prime' } .</h3>`;
+		} 
+
+		num = null;
+	}
+
+
+	function improvedPrime(){
+		num = Number(document.getElementById("inputBox2").value);
+
+		if(num){
+			checkPrime.innerHTML = `<h3>You entered ${num} ${ improvedIsPrime(Number(num)) ? 'which is prime' : 'not prime' } .</h3>`;
 		} 
 
 		num = null;
