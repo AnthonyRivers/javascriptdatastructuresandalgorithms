@@ -10,16 +10,16 @@
     <body>
 	<div id="app"></div>
 	<h2>Using isPrime() function.</h2>
-	<input type="button" value="Check Primatily" onclick=checkValue()></input>
+	<input type="button" value="Check Primatily" onclick=myfunc.checkValue()></input>
 	<input id="inputBox" type="text" name="numVal"></input>
 
 	<div id="improvedPrime"></div>
 	<h2>Using improvedIsPrime() function.</h2>
-	<input type="button" value="Check Primatily" onclick=improvedPrime()></input>
+	<input type="button" value="Check Primatily" onclick=myfunc.improvedPrime()></input>
 	<input id="inputBox2" type="text" name="numVal2"></input>
 
     <script>
-
+	var myfunc = (function(window, document){
 	const app = document.getElementById("app");
 	const checkPrime = document.getElementById("improvedPrime");
 
@@ -45,6 +45,14 @@
 
 		num = null;
 	}
+
+		return {
+			checkValue: checkValue,
+			improvedPrime: improvedPrime
+
+		};
+
+	})(window,document);
 
     </script>
     </body>
