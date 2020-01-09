@@ -1,11 +1,17 @@
 /**
  * primeFactors.js
  *
+ * Time Complexity: O(sqrt(n))
+ *
+ *
  */
 function primeFactors(n){
+	var arr = [];
+
 	//print the number of 2s that dive n
 	while (n % 2 == 0) {
 		console.log(2);
+		arr.push(2);
 		n = n / 2;
 	}
 
@@ -15,6 +21,7 @@ function primeFactors(n){
         // while i divides n, print i and divide n
         while(n % i == 0){
             console.log(i);
+	    arr.push(i);
             n = n / i;
         }
     }
@@ -23,6 +30,10 @@ function primeFactors(n){
     // greater than 2
     if(n > 2){
         console.log(n);
+	arr.push(n);
     }
+
+    return arr;
 }
+
 

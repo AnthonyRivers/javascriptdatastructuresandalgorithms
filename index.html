@@ -5,6 +5,7 @@
         <title>JavaScript Data Structures and Algorithms</title>
         <script src="./isPrime.js"></script>
 	<script src="./improvedIsPrime.js"></script>
+	<script src="./primeFactors.js"></script>
     </head>
 
     <body>
@@ -18,10 +19,17 @@
 	<input type="button" value="Check Primatily" onclick=myfunc.improvedPrime()></input>
 	<input id="inputBox2" type="text" name="numVal2"></input>
 
+	<h2>Using primeFactors() function.</h2>
+	<div id="pFactors"></div>
+	<input type="button" value="compute factors" onclick=myfunc.pFactors()></input>
+	<input id="inputBox3" type="text" name="numVal3"></input>
+
+
     <script>
 	var myfunc = (function(window, document){
 	const app = document.getElementById("app");
 	const checkPrime = document.getElementById("improvedPrime");
+	const pFact = document.getElementById("pFactors");
 
 	var num;
 
@@ -46,9 +54,23 @@
 		num = null;
 	}
 
+	function pFactors(){
+		num = Number(document.getElementById("inputBox3").value);
+
+		if(num){
+			var arr = primeFactors(num);
+
+			pFact.innerHTML = `<h3>Following are the prime factors of ${num}:
+			${arr}
+				</h3>`;
+			num = null;
+		}
+	}
+
 		return {
 			checkValue: checkValue,
-			improvedPrime: improvedPrime
+			improvedPrime: improvedPrime,
+			pFactors: pFactors
 
 		};
 
