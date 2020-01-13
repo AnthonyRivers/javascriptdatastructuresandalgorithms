@@ -24,12 +24,19 @@
 	<input type="button" value="compute factors" onclick=myfunc.pFactors()></input>
 	<input id="inputBox3" type="text" name="numVal3"></input>
 
+	<h2>Generate Random Numbers</h2>
+	<div id="rNum"></div>
+	<input type="button" value="Random Numbers" onclick=myfunc.randomNum()></input>
+
+
 
     <script>
 	var myfunc = (function(window, document){
+
 	const app = document.getElementById("app");
 	const checkPrime = document.getElementById("improvedPrime");
 	const pFact = document.getElementById("pFactors");
+	const rNum = document.getElementById("rNum");
 
 	var num;
 
@@ -67,10 +74,28 @@
 		}
 	}
 
+	function randomNum(){
+
+		rNum.innerHTML = `<h3>
+			Random floating point number between 0 and 100: ${ Math.random() * 100} <br />
+			Random floating point number between 5 and 30: ${ Math.random() * 25 + 5} <br />
+			Random floating point number between -100  and -90: ${ Math.random() * 10 - 100} <br />
+			<br />
+
+			Random integer number between 0 and 90: ${ Math.floor(Math.random() * 100)} <br />
+			Random integer number between 5 and 30: ${ Math.round(Math.random() * 25) + 5} <br />
+			Random integer number between -100 and -90: ${ Math.ceil(Math.random() * 10) - 100} <br />
+
+
+				</h3>`;
+	}
+	
+
 		return {
 			checkValue: checkValue,
 			improvedPrime: improvedPrime,
-			pFactors: pFactors
+			pFactors: pFactors,
+			randomNum: randomNum
 
 		};
 
